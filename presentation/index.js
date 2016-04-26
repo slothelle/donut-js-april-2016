@@ -41,7 +41,8 @@ const images = {
   hats: require("../assets/hats.jpg"),
   fire: require("../assets/fire.jpg"),
   pattern: require("../assets/pattern.png"),
-  math: require("../assets/math.jpg")
+  math: require("../assets/math.jpg"),
+  repos: require("../assets/repos.png")
 };
 
 preloader(images);
@@ -88,6 +89,13 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
+          <Slide bgColor="secondary">
+            <Image src={images.repos} width="100%"></Image>
+            <Appear>
+              <Text textColor="primary" bold textColor="primary" lineHeight={1.5}>This is my yak.</Text>
+            </Appear>
+          </Slide>
+
           <Slide bgImage={images.pattern} bgDarken={0.8}>
             <Heading size={5} textColor="quartenary">
               What's in a knitting pattern?
@@ -129,12 +137,6 @@ export default class Presentation extends React.Component {
             <Appear>
               <Heading size={4} textColor="quartenary">
                 Domain knowledge
-              </Heading>
-            </Appear>
-
-            <Appear>
-              <Heading size={4} textColor="quartenary">
-                Room for user error
               </Heading>
             </Appear>
           </Slide>
@@ -182,8 +184,10 @@ export default class Presentation extends React.Component {
             <Text textColor="primary" textColor="primary" lineHeight={1.5}>What about more complicated garments, like sweaters or socks?</Text>
           </Slide>
 
-          <Slide bgImage={images.hats} bgDarken={0.35}>
-            <Heading>Room for user error</Heading>
+          <Slide bgImage={images.hat} bgDarken={0.25}>
+            <Heading size={1} fit caps>
+              The end result
+            </Heading>
           </Slide>
 
           <Slide>
