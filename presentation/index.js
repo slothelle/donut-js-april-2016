@@ -37,134 +37,178 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
-  city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
-  logo: require("../assets/formidable-logo.svg"),
-  markdown: require("../assets/markdown.png")
+  hat: require("../assets/hat.jpg"),
+  hats: require("../assets/hats.jpg"),
+  fire: require("../assets/fire.jpg"),
+  pattern: require("../assets/pattern.png"),
+  math: require("../assets/math.jpg")
 };
 
 preloader(images);
 
 const theme = createTheme({
-  primary: "#ff4081"
+  primary: "white",
+  secondary: "black",
+  tertiary: "white",
+  quartenary: "white"
 });
 
 export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["zoom", "slide"]} transitionDuration={500}>
-          <Slide transition={["zoom"]} bgColor="primary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Spectacle
-            </Heading>
+        <Deck transition={["slide"]} transitionDuration={100}>
+          <Slide bgImage={images.hat} bgDarken={0.25}>
             <Heading size={1} fit caps>
-              A ReactJS Presentation Library
+              Liz Abinante presents
             </Heading>
-            <Heading size={1} fit caps textColor="black">
-              Where You Can Write Your Decks In JSX
+            <Heading size={4} fit textColor="primary">
+              her foolish quest to auto-generate
             </Heading>
-            <Link href="https://github.com/FormidableLabs/spectacle">
-              <Text bold caps textColor="tertiary">View on Github</Text>
-            </Link>
-            <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
+            <Heading size={4} fit textColor="primary">
+              knitting patterns using JavaScript. 
+            </Heading>
+            <Text textSize={36} lineHeight={3} bold textColor="primary">
+              @feministy &bull; me@liz.codes
+            </Text>
           </Slide>
-          <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-            <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
-            <Heading size={2} caps fit textColor="primary" textFont="primary">
-              Wait what?
+
+          <Slide bgColor="secondary">
+            <Heading size={1} fit caps>
+              Knitting + JavaScript
+            </Heading>
+            <Heading size={1} fit>
+              What could go possibly wrong?
             </Heading>
           </Slide>
-          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+
+          <Slide bgImage={images.fire}>
+            <Heading size={1} fit caps>
+              A lot.
+            </Heading>
+          </Slide>
+
+          <Slide bgImage={images.pattern} bgDarken={0.8}>
+            <Heading size={5} textColor="quartenary">
+              What's in a knitting pattern?
+            </Heading>
+            <List textColor="quartenary">
+              <Appear><ListItem>Required yarn weight and amount</ListItem></Appear>
+              <Appear><ListItem>Sizing information</ListItem></Appear>
+              <Appear><ListItem>Suggested needle size</ListItem></Appear>
+              <Appear><ListItem>Gauge (stitches per inch and row)</ListItem></Appear>
+              <Appear><ListItem>Abbreviations</ListItem></Appear>
+              <Appear><ListItem>Actual instructions</ListItem></Appear>
+              <Appear><ListItem>Reference images</ListItem></Appear>
+              <Appear><ListItem>Charts</ListItem></Appear>
+            </List>
+          </Slide>
+
+          <Slide bgImage={images.math} bgDarken={0.35}>
+            <Heading size={2} textColor="quartenary">
+              Math for math's sake is very different than math to create a real thing.
+            </Heading>
+          </Slide>
+
+          <Slide bgImage={images.math} bgDarken={0.35}>
+            <Heading size={2} textColor="quartenary">
+              Common problems
+            </Heading>
+            <Appear>
+              <Heading size={4} textColor="quartenary">
+                Rounding
+              </Heading>
+            </Appear>
+
+            <Appear>
+              <Heading size={4} textColor="quartenary">
+                Unit conversions
+              </Heading>
+            </Appear>
+
+            <Appear>
+              <Heading size={4} textColor="quartenary">
+                Domain knowledge
+              </Heading>
+            </Appear>
+
+            <Appear>
+              <Heading size={4} textColor="quartenary">
+                Room for user error
+              </Heading>
+            </Appear>
+          </Slide>
+
+          
+          <Slide bgImage={images.hats} bgDarken={0.35}>
+            <Heading>Rounding</Heading>
+            <Text textColor="primary" bold textColor="primary" lineHeight={1.5}>Little problems: 1/2" too small, or 1/3" too big?</Text>
             <CodePane
-              lang="jsx"
-              source={require("raw!../assets/deck.example")}
+              lang="js"
+              source={require("raw!../assets/rounding.example")}
               margin="20px auto"
             />
           </Slide>
-          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-            <Appear fid="1">
-              <Heading size={1} caps fit textColor="primary">
-                Full Width
-              </Heading>
-            </Appear>
-            <Appear fid="2">
-              <Heading size={1} caps fit textColor="tertiary">
-                Adjustable Darkness
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={1} caps fit textColor="primary">
-                Background Imagery
-              </Heading>
-            </Appear>
-          </Slide>
-          <Slide transition={["zoom", "fade"]} bgColor="primary">
-            <Heading caps fit>Flexible Layouts</Heading>
+
+          <Slide bgImage={images.hats} bgDarken={0.35}>
+            <Heading>Unit conversions</Heading>
+            <Text textColor="primary" bold textColor="primary" lineHeight={1.5}>Calculating imperial vs metric units</Text>
             <Layout>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Left
-                </Heading>
+              <Fill margin={10}>
+                <CodePane
+                  margin={10}
+                  lang="js"
+                  source={require("raw!../assets/conversions.example")}
+                  margin="20px auto"
+                />
               </Fill>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Right
-                </Heading>
+              <Fill margin={10}>
+                <CodePane
+                  margin={10}
+                  lang="js"
+                  source={require("raw!../assets/conversions2.example")}
+                  margin="20px auto"
+                />
               </Fill>
             </Layout>
           </Slide>
-          <Slide transition={["slide"]} bgColor="black">
-            <BlockQuote>
-              <Quote>Wonderfully formatted quotes</Quote>
-              <Cite>Ken Wheeler</Cite>
-            </BlockQuote>
-          </Slide>
-          <Slide transition={["spin", "zoom"]} bgColor="tertiary">
-            <Heading caps fit size={1} textColor="primary">
-              Inline Markdown
-            </Heading>
-            <Markdown>
-              {`
-![Markdown Logo](${images.markdown.replace("/", "")})
 
-You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-* Lists too!
-* With ~~strikethrough~~ and _italic_
-* And lets not forget **bold**
-              `}
-            </Markdown>
+          <Slide bgImage={images.hats} bgDarken={0.35}>
+            <Heading>Domain knowledge</Heading>
+            <Text textColor="primary" textColor="primary" lineHeight={1.5}>What's the appropriate slope for an adult hat?</Text>
+            <Text textColor="primary" textColor="primary" lineHeight={1.5}>What method of decreasing do you use?</Text>
+            <Text textColor="primary" textColor="primary" lineHeight={1.5}>What about for hats with extreme slopes?</Text>
+            <Text textColor="primary" textColor="primary" lineHeight={1.5}>Is more or less ease ok?</Text>
+            <Text textColor="primary" textColor="primary" lineHeight={1.5}>What about more complicated garments, like sweaters or socks?</Text>
           </Slide>
-          <Slide transition={["slide", "spin"]} bgColor="primary">
-            <Heading caps fit size={1} textColor="tertiary">
-              Smooth
-            </Heading>
-            <Heading caps fit size={1} textColor="secondary">
-              Combinable Transitions
-            </Heading>
+
+          <Slide bgImage={images.hats} bgDarken={0.35}>
+            <Heading>Room for user error</Heading>
           </Slide>
-          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
+
+          <Slide>
+            <Heading size={5}>
+              Stuff!
+            </Heading>
             <List>
-              <Appear><ListItem>Inline style based theme system</ListItem></Appear>
-              <Appear><ListItem>Autofit text</ListItem></Appear>
-              <Appear><ListItem>Flexbox layout system</ListItem></Appear>
-              <Appear><ListItem>React-Router navigation</ListItem></Appear>
-              <Appear><ListItem>PDF export</ListItem></Appear>
-              <Appear><ListItem>And...</ListItem></Appear>
+              <ListItem><Link href="https://github.com/feministy/donut-js-april-2016">Slides</Link></ListItem>
+              <ListItem><Link href="http://artcraftcode.com/patterns/very_pdx/">ArtCraftCode: Make a hat pattern!</Link></ListItem>
+              <ListItem><Link href="https://github.com/ArtCraftCode/artcraftcode.com">ArtCraftCode source</Link></ListItem>
             </List>
           </Slide>
-          <Slide transition={["slide"]} bgColor="primary">
-            <Heading size={1} caps fit textColor="tertiary">
-              Your presentations are interactive
+
+          <Slide>
+            <Heading size={5}>
+              Images!
             </Heading>
-            <Interactive/>
+            <List>
+              <ListItem><Link href="https://unsplash.com/photos/hAobD5OjoHE">Knit hat</Link></ListItem>
+              <ListItem><Link href="https://www.pexels.com/photo/wood-explosion-fire-hot-8504/">Fire</Link></ListItem>
+              <ListItem><Link href="https://unsplash.com/photos/5mZ_M06Fc9g">Math equation</Link></ListItem>
+              <ListItem><Link href="http://www.purlsoho.com/create/2014/10/22/classic-cuffed-hat/">Stack of knit hats</Link></ListItem>
+            </List>
           </Slide>
-          <Slide transition={["spin", "slide"]} bgColor="tertiary">
-            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              Made with love in Seattle by
-            </Heading>
-            <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
-          </Slide>
+          
         </Deck>
       </Spectacle>
     );

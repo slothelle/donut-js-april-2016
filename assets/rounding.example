@@ -1,0 +1,12 @@
+let gauge = 4.75
+let size = 21
+let easeInches = 2
+let circumference = size - easeInches
+
+let castOn = gauge * circumference // 90.25
+
+let roundDown = roundDownToNearestFour(90.25) // 88
+let roundUp = roundUpToNearestFour(90.25) // 92
+
+roundDown / gauge // 18.526315789473685
+roundUp / gauge // 19.36842105263158
