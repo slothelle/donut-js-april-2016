@@ -75,6 +75,13 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide bgColor="secondary">
+            <Image src={images.repos} width="100%"></Image>
+            <Appear>
+              <Text textColor="primary" bold textColor="primary" lineHeight={1.5}>This is my yak.</Text>
+            </Appear>
+          </Slide>
+
+          <Slide bgColor="secondary">
             <Heading size={1} fit caps>
               Knitting + JavaScript
             </Heading>
@@ -87,13 +94,6 @@ export default class Presentation extends React.Component {
             <Heading size={1} fit caps>
               A lot.
             </Heading>
-          </Slide>
-
-          <Slide bgColor="secondary">
-            <Image src={images.repos} width="100%"></Image>
-            <Appear>
-              <Text textColor="primary" bold textColor="primary" lineHeight={1.5}>This is my yak.</Text>
-            </Appear>
           </Slide>
 
           <Slide bgImage={images.pattern} bgDarken={0.8}>
